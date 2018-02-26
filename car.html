@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="icon" href="imgs/logo.png" type="image/x-icon">
+	<link rel="stylesheet" href="css/public.css">
+	<script src="js/rem.js"></script>
+	<style>
+		@font-face {
+		  font-family: 'iconfont';  /* project id 570248 */
+		  src: url('https://at.alicdn.com/t/font_570248_tqik2er9m620529.eot');
+		  src: url('https://at.alicdn.com/t/font_570248_tqik2er9m620529.eot?#iefix') format('embedded-opentype'),
+		  url('https://at.alicdn.com/t/font_570248_tqik2er9m620529.woff') format('woff'),
+		  url('https://at.alicdn.com/t/font_570248_tqik2er9m620529.ttf') format('truetype'),
+		  url('https://at.alicdn.com/t/font_570248_tqik2er9m620529.svg#iconfont') format('svg');
+		}
+		.header{
+			height: .89rem;
+			width: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: #F9F8F8;
+			border-top: .01rem solid #eee;
+		}
+		.footer{
+			height: .98rem;
+			width: 100%;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			background-color: #F9F9F9;
+		}
+		.main{
+			position: absolute;
+			top: .89rem;
+			overflow-y: scroll;
+			left: 0;
+			right: 0;
+			bottom: .96rem;
+			background-color: #F0EFED;
+		}
+		.main::-webkit-scrollbar{
+			display: none;
+		}
+		.header_left{
+			width: .2rem;
+			height: .32rem;
+			margin-top: .28rem;
+			margin-left: .22rem;
+			/*background-color: red;*/
+			float: left;
+			position: relative;
+		}
+		.header_left a{
+			font-size: .32rem;
+			position: absolute;
+			top: 0;
+		}
+		.header_zhong{
+			width: 1rem;
+			height: .33rem;
+			margin-top: .3rem;
+			margin-left: 2.58rem;
+			/*background-color: green;*/
+			float: left;
+		}
+		.header_zhong h1{
+			font-size: .32rem;
+			color: #000;
+			line-height: .28rem;
+		}
+		.header_right{
+			margin-left: 2.42rem;
+			width: .32rem;
+			height: .22rem;
+			/*background-color: seagreen;*/
+			float: left;
+			margin-top: .34rem;
+			position: relative;
+		}
+		.header_right span{
+			font-family: 'iconfont';
+			font-size: .22rem; 
+			position: absolute;
+			color: #000;
+			top: 0;
+		}
+		.main_shang{
+			width: 100%;
+			height: 4.4rem;
+			border-bottom: .02rem solid #E4E4E4;
+			border-top: .02rem solid #E4E4E4;
+			background-color: #fff;
+		}
+		.main_shang_item{
+			width: 100%;
+			height: 2.22rem;
+			/*background-color: red;*/
+		}
+		.main_shang_yuan{
+			width: .28rem;
+			height: .28rem;
+			margin-top: .96rem;
+			margin-left: .3rem;
+			border-radius: 50%;
+			border: .02rem solid #000;
+			float: left;
+		}
+		.main_shang_tu{
+			width: 1.7rem;
+			height: 1.7rem;
+			margin-top: .24rem;
+			margin-left: .28rem;
+			float: left;
+		}
+		.main_shang_tu img{
+			width: 1.7rem;
+			height: 1.7rem;
+		}
+		.main_shang_wen{
+			width: 4.08rem;
+			height: 1.6rem;
+			margin-top: .34rem;
+			margin-left: .33rem;
+			float: left;
+		}
+		.main_shang_wen_shang{
+			width: 4.08rem;
+			height: .28rem;
+			/*background-color: red;*/
+		}
+		.main_shang_wen_shang p{
+			font-size: .28rem;
+			color: #000;
+		}
+		.main_shang_wen_xia{
+			width: 4.08rem;
+			height: .48rem;
+			margin-top: .84rem;
+			margin-left: .05rem;
+			/*background-color: pink;*/
+		}
+		.main_shang_wen_xia span{
+			font-size: .18rem;
+			color: #FE6600;
+			float: left;
+			line-height: .48rem;
+		}
+		.main_shang_wen_xia h1{
+			font-size: .2rem;
+			color: #FE6600;
+			float: left;
+			line-height: .48rem;
+		}
+		.main_shang_wen_xia_shuliang{
+			width: 1.6rem;
+			height: .48rem;
+			float: left;
+			margin-left: 1.06rem;
+			/*border: .07rem;*/
+			border-radius: .09rem;
+			border: .02rem solid #E4E4E4;
+		}
+		.heng{
+			width: .11rem;
+			height: .04rem;
+			float: left;
+			margin-left: .18rem;
+			margin-top: .22rem;
+			background-color: #DBDBDB;
+		}
+		.main_shang_wen_xia_shuliang p{
+			font-size: .2rem;
+			margin-left: .46rem;
+			line-height: .48rem;
+			color: #000;
+			float: left;
+		}
+		.jiahao{
+			width: .17rem;
+			height: .2rem;
+			float: left;
+			margin-left: .43rem;
+			margin-top: .12rem;
+			position: relative;
+			/*background-color: red;*/
+		}
+		.jiahao_heng{
+			width: .17rem;
+			height: .03rem;
+			top: .08rem;
+			background-color: #000;
+			position: absolute;
+		}
+		.jiahao_shu{
+			width: .03rem;
+			height: .17rem;
+			left: .08rem;
+			z-index: -0.03;
+			background-color: #000;
+			position: absolute;
+		}
+		.main_shang_wen_xia h2{
+			font-size: .24rem;
+			color: #737373;
+			float: left;
+			line-height: .48rem;
+			margin-left: .22rem;
+		}
+		.main_zhong{
+			width: 100%;
+			height: .4rem;
+			background-color: #fff;
+		}
+		.main_dibu{
+			width: 100%;
+			/*height: 6.14rem;*/
+			border-bottom: .02rem solid #E4E4E4;
+			border-top: .02rem solid #E4E4E4;
+			background-color: #fff;
+			margin-top: .2rem;
+			overflow: hidden;
+		}
+		.main_dibu_item{
+			width: 100%;
+			height: 3.17rem;
+		}
+		.main_dibu_title{
+			width: 5.49rem;
+			height: .42rem;
+			margin-left: .8rem;
+			margin-top: .2rem;
+			/*background-color: pink;*/
+		}
+		.main_dibu_title p{
+			font-size: .3rem;
+			float: left;
+			color: #FF6A00;
+			line-height: .38rem;
+		}
+		.main_dibu_title_jiange{
+			margin-left: .65rem;
+			height: .42rem;
+			width: .02rem;
+			background-color: #DBDBDB;
+			float: left;
+		}
+		.main_dibu_title h1{
+			font-size: .28rem;
+			float: left;
+			color: #000;
+			margin-left: .28rem;
+			line-height: .42rem;
+		}
+		.main_dibu_bottom{
+			height: 3.04rem;
+			/*height: 2.55rem;*/
+			width: 100%;
+			/*background-color: green;*/
+			display: flex;
+			/* 水平滑动 */
+			overflow: scroll;
+			overflow-y: hidden;
+			/*white-space: nowrap;*/
+		}
+		.main_dibu_bottom_item{
+			height: 2.55rem;
+			width: 2.01rem;
+			/*background-color: pink;*/
+			float: left;
+
+		}
+		.main_dibu_bottom_item img{
+			height: 1.75rem;
+			width: 1.61rem;
+			margin-left: .2rem;
+		}
+		.main_dibu_bottom_wenzi{
+			height: 5.5rem;
+		}
+		.main_dibu_bottom_wenzi p{
+			font-size: .2rem;
+			color: #000;
+			text-align: center;
+		} 
+		.main_dibu_bottom_wenzi span{
+			font-size: .16rem;
+			color: #FF6A00;
+			float: left;
+			margin-left: .68rem;
+			margin-top: .03rem;
+		} 
+		.main_dibu_bottom_wenzi h2{
+			font-size: .2rem;
+			color: #FF6A00;
+			float: left;
+			margin-top: .05rem;
+		}
+		.main_dibu_item2{
+			width: 100%;
+			/*height: 3.17rem;*/
+			margin-top: .4rem;
+			/*height: 10.27rem;*/
+			/*background-color: yellow;*/
+		} 
+		.main_dibu_bottom2{
+			height: 9.85rem;
+			width: 100%;
+			background-color: #fff;
+		}
+		.footer_left{
+			height: .98rem;
+			width: 4.74rem;
+			background-color: #fff;
+			float: left;
+		}
+		.footer_left h1{
+			font-size: .24rem;
+			margin-left: .5rem;
+			color: #000;
+			float: left;
+			line-height: .98rem;
+		}
+		.footer_left span{
+			font-size: .2rem;
+			margin-left: .1rem;
+			color: #FE6701;
+			float: left;
+			line-height: .98rem;
+		}
+		.footer_left h2{
+			font-size: .24rem;
+			margin-left: .1rem;
+			color: #FE6701;
+			float: left;
+			line-height: .98rem;
+		}
+		.footer_right{
+			height: .98rem;
+			width: 2.46rem;
+			background-color: #FE6600;
+			float: left;
+			text-align: center;
+		}
+		.footer_right h3{
+			font-size: .32rem;
+			/*margin-left: .5rem;*/
+			color: #fff;
+			line-height: .98rem;
+		}
+		.main_dibu_bottom_item2{
+			margin-right: .58rem;
+		}
+		.main_dibu_bottom_item3{
+			margin-top: .6rem;
+			margin-right: .58rem;
+		}
+		.main_dibu_bottom_item4{
+			margin-top: .6rem;
+		}
+	</style>
+</head>
+<body>
+	<section class="header">
+		<div class="header_left">
+			<a href="index.html">&lt;</a>
+		</div>
+		<div class="header_zhong">
+			<h1>购物车</h1>
+		</div>
+		<div class="header_right">
+			<span>&#xe602;</span>
+		</div>
+	</section>
+	<section class="main">
+		<div class="main_shang">
+			<div class="main_shang_item">
+				<div class="main_shang_yuan"></div>
+				<div class="main_shang_tu">
+					<img src="imgs/1.1.jpg" alt="">
+				</div>
+				<div class="main_shang_wen">
+					<div class="main_shang_wen_shang">
+						<p>【鲜花】一心一意</p>
+					</div>
+					<div class="main_shang_wen_xia">
+						<span>&yen;</span>
+						<h1>166</h1>
+						<div class="main_shang_wen_xia_shuliang">
+							<div class="heng"></div>
+							<p>1</p>
+							<div class="jiahao">
+								<div class="jiahao_heng"></div>
+								<div class="jiahao_shu"></div>
+							</div>
+						</div>
+						<h2>删除</h2>
+					</div>				
+				</div>	
+			</div>
+			<div class="main_shang_item">
+				<div class="main_shang_yuan"></div>
+				<div class="main_shang_tu">
+					<img src="imgs/4.1.jpg" alt="">
+				</div>
+				<div class="main_shang_wen">
+					<div class="main_shang_wen_shang">
+						<p>【蛋糕】陪伴左右</p>
+					</div>
+					<div class="main_shang_wen_xia">
+						<span>&yen;</span>
+						<h1>168</h1>
+						<div class="main_shang_wen_xia_shuliang">
+							<div class="heng"></div>
+							<p>1</p>
+							<div class="jiahao">
+								<div class="jiahao_heng"></div>
+								<div class="jiahao_shu"></div>
+							</div>
+						</div>
+						<h2>删除</h2>
+					</div>				
+				</div>	
+			</div>
+		</div>
+		<div class="main_zhong"></div>
+		<div class="main_dibu">
+			<div class="main_dibu_item">
+				<div class="main_dibu_title">
+					<p>购买了该商品还购买了</p>
+					<div class="main_dibu_title_jiange"></div>
+					<h1>巧克力/花瓶</h1>
+				</div>
+				<div class="main_dibu_bottom">
+					<div class="main_dibu_bottom_item">
+						<img src="imgs/g1.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>999纯金箔玫瑰</p>
+							<span>&yen;</span>
+							<h2>166</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item">
+						<img src="imgs/g2.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>十八音水晶钢琴</p>
+							<span>&yen;</span>
+							<h2>228</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item">
+						<img src="imgs/g3.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>旋转木马/蓝</p>
+							<span>&yen;</span>
+							<h2>158</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item">
+						<img src="imgs/g5.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>一生一世</p>
+							<span>&yen;</span>
+							<h2>198</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item">
+						<img src="imgs/g4.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>一生的承诺</p>
+							<span>&yen;</span>
+							<h2>166</h2>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			<div class="main_dibu_item2">
+				<div class="main_dibu_title">
+					<p>猜你喜欢</p>
+				</div>
+				<div class="main_dibu_bottom2">
+					<div class="main_dibu_bottom_item main_dibu_bottom_item2">
+						<img src="imgs/1.4.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>鲜花/阳光海岸</p>
+							<span>&yen;</span>
+							<h2>248</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item main_dibu_bottom_item2">
+						<img src="imgs/1.8.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>鲜花/缘分</p>
+							<span>&yen;</span>
+							<h2>218</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item">
+						<img src="imgs/g7.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>感恩密码</p>
+							<span>&yen;</span>
+							<h2>158</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item main_dibu_bottom_item3">
+						<img src="imgs/r6.png" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>特色礼品</p>
+							<span>&yen;</span>
+							<h2>88</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item main_dibu_bottom_item3">
+						<img src="imgs/r7.png" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>品牌公仔</p>
+							<span>&yen;</span>
+							<h2>126</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item main_dibu_bottom_item4">
+						<img src="imgs/r8.png" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>一生的承诺</p>
+							<span>&yen;</span>
+							<h2>166</h2>
+						</div>
+					</div>
+					
+					<div class="main_dibu_bottom_item main_dibu_bottom_item3">
+						<img src="imgs/g8.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>七夕巧克力小食瓶</p>
+							<span>&yen;</span>
+							<h2>139</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item main_dibu_bottom_item3">
+						<img src="imgs/g9.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>巧克巧寇定制</p>
+							<span>&yen;</span>
+							<h2>156</h2>
+						</div>
+					</div>
+					<div class="main_dibu_bottom_item main_dibu_bottom_item4">
+						<img src="imgs/g10.jpg" alt="">
+						<div class="main_dibu_bottom_wenzi">
+							<p>巧克巧寇谢谢你</p>
+							<span>&yen;</span>
+							<h2>126</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<section class="footer">
+		<div class="footer_left">
+			<h1>合计:</h1>
+			<span>&yen;</span>
+			<h2>0</h2>
+		</div>
+		<div class="footer_right">
+			<h3>去结算（0）</h3>
+		</div>
+	</section>
+</body>
+</html>

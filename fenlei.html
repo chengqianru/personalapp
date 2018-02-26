@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>分类</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="icon" href="imgs/logo.png" type="image/x-icon">
+	<link rel="stylesheet" href="css/public.css">
+	<script src="js/rem.js"></script>
+	<style>
+	@font-face {
+			font-family: 'iconfont';  /* project id 570248 */
+	    src: url('https://at.alicdn.com/t/font_570248_zprrmu62zk3mcxr.eot');
+	    src: url('https://at.alicdn.com/t/font_570248_zprrmu62zk3mcxr.eot?#iefix') format('embedded-opentype'),
+	    url('https://at.alicdn.com/t/font_570248_zprrmu62zk3mcxr.woff') format('woff'),
+	    url('https://at.alicdn.com/t/font_570248_zprrmu62zk3mcxr.ttf') format('truetype'),
+	    url('https://at.alicdn.com/t/font_570248_zprrmu62zk3mcxr.svg#iconfont') format('svg');
+		}
+		.header{
+		height: .88rem;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-color: #F6F6F6;
+		}
+		.footer{
+			height: .96rem;
+			width: 100%;
+			position: fixed;
+			border-top: 2px solid #DDDDDD;
+			bottom: 0;
+			left: 0;
+			background-color: #F9F9F9;
+		}
+		.main{
+			position: absolute;
+			top: .88rem;
+			overflow-y: scroll;
+			left: 0;
+			right: 0;
+			bottom: .96rem;
+			/*background-color: #EEEEEE;*/
+		}
+		.main::-webkit-scrollbar{
+			display: none;
+		}
+		.header_search{
+			height: .62rem;
+			margin-top: .13rem;
+			margin-left: .32rem;
+			width: 6.56rem;
+			background-color: #fff;
+		}
+		input{
+			height: .62rem;
+			width: 6.08rem;
+			float: left;
+			outline: none;
+			border: 0;
+			background: none;
+		}
+		.sousuo{
+			height: .62rem;
+			width: .49rem;
+			float: left;
+			font-family: 'iconfont';
+			font-size: .24rem;
+			margin-left: -.01rem;
+		}
+		.main_left{
+			height: 11.94rem;
+			width: 1.8rem;
+			float: left;
+			/*background-color: red;*/
+		}
+		.main_left_shang{
+			height: .96rem;
+			width: 1.8rem;
+		}
+		.main_left_shang h1{
+			font-size: .24rem;
+			line-height: .96rem;
+			text-align: center;
+		}
+		.main_left_xia{
+			height: 10.98rem;
+			width: 1.8rem;
+			background-color: #F6F6F6;
+			text-align: center;
+		}
+		.main_left_xia h2{
+			font-size: .24rem;
+			color: #000;
+			padding-top: .37rem;
+			
+		}
+		.main_left_xia h3{
+			font-size: .24rem;
+			color: #000;
+			margin-top: .72rem;
+		}
+		.main_right{
+			height: 11.94rem;
+			width: 5.08rem;
+			background-color: #fff;
+			/*background-color: pink;*/
+			float: left;
+			margin-left: .17rem;
+		}
+		.main_right img{
+			height: 1.7rem;
+			width: 5.08rem;
+			margin-top: .16rem;
+		}
+		.main_right_xia{
+			height: 9.78rem;
+			width: 5.08rem;
+			/*background-color: skyblue;*/
+		}
+		.main_right_xia_title{
+			height: .24rem;
+			width: 1.2rem;
+			padding-top: .47rem;
+			margin-bottom: .56rem;
+		}
+		.main_right_xia_title h1{
+			font-size: .24rem;
+			color: #000;
+		}
+		.main_right_xia_item{
+			height: 1.66rem;
+			width: 1.66rem;
+			/*background-color: red;*/
+			margin-bottom: .4rem;
+			float: left; 
+		}
+		.main_right_xia_item img{
+			height: 1.03rem;
+			width: .95rem;
+			margin-left: .36rem;
+		}
+		.main_right_xia_item p{
+			font-size: .2rem;
+			line-height: .2rem;
+			color: #000;
+			text-align: center;
+		}
+		.footer_item{
+			width: 1.8rem;
+			height: .86rem;
+			/*background-color: red;*/
+			float: left;
+		}
+		.footer_item_tu{
+			width: .48rem;
+			height: .48rem;
+			margin-top: 3px;
+			margin-left: .67rem;
+			/*background-color: green;*/
+			position: relative;
+		}
+		.footer_item_tu img{
+			width: .46rem;
+			height: .46rem;
+			position: absolute;
+			top: 0;
+		}
+		.footer_item_wen{
+			/*width: .5rem;*/
+			height: .2rem;
+			margin-top: .05rem;
+			text-align: center;
+			/*background-color: blue;*/
+			position: relative;
+		}
+		.footer_item_wen a{
+			font-size: .18rem;
+			/*color: #FE8027;*/
+			color: #000;
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: auto;
+			line-height: .2rem;
+		}
+		.footer_item_wen2 a{
+			color: #FE8027;
+		}
+	</style>
+</head>
+<body>
+	<section class="header">
+		<div class="header_search">
+			<input type="text" placeholder="搜索蛋糕、鲜花、礼品">
+			<input type="submit" value="&#xe633;" class="sousuo">
+		</div>
+	</section>
+	<section class="main">
+		<div class="main_left">
+			<div class="main_left_shang">
+				<h1>热门推荐</h1>
+			</div>
+			<div class="main_left_xia">
+					<h2>鲜花</h2>
+					<h3>节日花束</h3>
+			
+					<h3>时令花束</h3>
+				
+					<h3>用途花束</h3>
+				
+					<h3>鲜花花材</h3>
+				
+					<h3>鲜花类别</h3>
+				
+					<h3>鲜花枝数</h3>
+				
+					<h3>蛋糕</h3>
+				
+					<h3>巧克力</h3>
+				
+					<h3>绿植花卉</h3>
+			</div>	
+		</div>
+		<div class="main_right">
+			<img src="imgs/banner.jpg" alt="">
+			<div class="main_right_xia">
+				<div class="main_right_xia_title">
+					<h1>大家都在找</h1>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/r1.png" alt="">
+					</div>
+					<p>鲜花</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/r2.png" alt="">
+					</div>
+					<p>节日花束</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/r3.png" alt="">
+					</div>
+					<p>时令花束</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/1.10.jpg" alt="">
+					</div>
+					<p>用途花束</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/1.12.jpg" alt="">
+					</div>
+					<p>鲜花花材</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/1.4.jpg" alt="">
+					</div>
+					<p>鲜花类别</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/1.7.jpg" alt="">
+					</div>
+					<p>鲜花枝数</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/r4.png" alt="">
+					</div>
+					<p>蛋糕</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/r5.png" alt="">
+					</div>
+					<p>巧克力</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/r6.png" alt="">
+					</div>
+					<p>特色礼品</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/r7.png" alt="">
+					</div>
+					<p>品牌公仔</p>
+				</div>
+				<div class="main_right_xia_item">
+					<div class="main_right_xia_tu">
+						<img src="imgs/r7.png" alt="">
+					</div>
+					<p>花篮</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="footer">
+		<div class="footer_item">
+			<div class="footer_item_tu">
+				<img src="imgs/f7.png" alt="">
+			</div>
+			<div class="footer_item_wen">
+				<a href="index.html">首页</a>
+			</div>
+		</div>
+		<div class="footer_item">
+			<div class="footer_item_tu footer_item_tu2">
+				<img src="imgs/f5.png" alt="">
+			</div>
+			<div class="footer_item_wen footer_item_wen2 ">
+				<a href="fenlei.html">分类</a>
+			</div>
+		</div>
+		<div class="footer_item">
+			<div class="footer_item_tu">
+				<img src="imgs/f3.png" alt="">
+			</div>
+			<div class="footer_item_wen">
+				<a href="car.html">购物车</a>
+			</div>
+		</div>
+		<div class="footer_item">
+			<div class="footer_item_tu">
+				<img src="imgs/f4.png" alt="">
+			</div>
+			<div class="footer_item_wen">
+				<a href="wode.html">我的</a>
+			</div>
+		</div>
+</section>
+</body>
+</html>	
