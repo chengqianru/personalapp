@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="icon" href="imgs/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <script src="js/rem.js"></script>
+    <style>
+        @font-face {
+            font-family: 'iconfont';  /* project id 570248 */
+            src: url('https://at.alicdn.com/t/font_570248_3jav2113r1azia4i.eot');
+            src: url('https://at.alicdn.com/t/font_570248_3jav2113r1azia4i.eot?#iefix') format('embedded-opentype'),
+            url('https://at.alicdn.com/t/font_570248_3jav2113r1azia4i.woff') format('woff'),
+            url('https://at.alicdn.com/t/font_570248_3jav2113r1azia4i.ttf') format('truetype'),
+            url('https://at.alicdn.com/t/font_570248_3jav2113r1azia4i.svg#iconfont') format('svg');
+        }
+        .swiper-container {
+            width: 100vw;
+            height: 7.88rem;
+            overflow: hidden;
+        }
+        .swiper-slide {
+            background: #eee;
+            font-size: 30px;
+            text-align: center;
+        }
+        .swiper-slide img{
+            width: 100vw;
+            height: 7.88rem;
+        }
+        .main{
+            position: absolute;
+            overflow-y: scroll;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: .98rem;
+            background-color: #F0EFED;
+        }
+        .main_price{
+            height: 2.16rem;
+            width: 100%;
+            background: #fff;
+            padding: .4rem .36rem;
+            margin-top: .02rem;
+        }
+        .main_price_shang{
+            height: .31rem;
+            line-height: .31rem;
+        }
+        .main_price_shang h1{
+            font-size: .26rem;
+            float: left;
+        }
+        .main_price_shang h2{
+            font-size: .26rem;
+            float: left;
+            margin-left: .16rem;
+            color: #FF6600;
+        }
+        .main_price_like{
+            width: .31rem;
+            height: .31rem;
+            float: left;
+            margin-left: .24rem;
+        }
+        .main_price_title{
+            height: .24rem;
+            margin-top: .20rem;
+            line-height: .24rem;
+        }
+        .main_price_title p{
+            font-size: .24rem;
+            color: #FF6600;
+        }
+        .main_price_xia{
+            height: .32rem;
+            margin-top: .4rem;
+        }
+        .main_price_shu{
+            height: .32rem;
+            line-height: .32rem;
+            float: left;
+        }
+        .main_price_shu i{
+            font-size: .26rem;
+            color: #FF6600;
+            float: left;
+        }
+        .main_price_shu p{
+            font-size: .28rem;
+            color: #FF6600;
+            float: left;
+        }
+        .main_price_shuzi{
+            height: .16rem;
+            line-height: .32rem;
+            float: left;
+            margin-left: .16rem;
+        }
+        .main_price_shuzi i{
+            font-size: .16rem;
+            color: #9B9B9B;
+            float: left;
+            text-decoration-line: line-through;
+        }
+        .main_price_shuzi p{
+            font-size: .16rem;
+            color: #9B9B9B;
+            float: left;
+            text-decoration-line: line-through;
+        }
+        .main_price_xia_count{
+            width: .8rem;
+            height: .32rem;
+            margin-left: .24rem;
+            border: .02rem solid #FF6700;
+            border-radius: .08rem;
+            float: left;
+            font-size: .2rem;
+            color: #FF6700;
+            line-height: .28rem;
+            text-align: center;
+        }
+        .main_introduction{
+            height: 5.4rem;
+            background: #fff;
+            margin-top: .16rem;
+            /*padding: .33rem .34rem .6rem 0;*/
+        }
+        .main_introduction_item{
+            padding: .33rem .6rem 0 .34rem;
+            /*background: red;*/
+            float: left;
+        }
+        .main_introduction_item_left{
+            float: left;
+            width: .46rem;
+            margin-right: .26rem;
+            font-size: .22rem;
+            line-height: .46rem;
+            color: #000;
+        }
+        .main_introduction_item_rig{
+            float: right;
+            width: 5.53rem;
+            font-size: .2rem;
+            color: #9B9B9B;
+            line-height: .46rem;
+        }
+        .main_address{
+            height: .88rem;
+            width: 100%;
+            background: #fff;
+            margin-top: .16rem;
+            line-height: .88rem;
+        }
+        .main_fangwei{
+            font-size: .18rem;
+            float: left;
+            margin-left: .34rem;
+        }
+        .main_fangwei span{
+            font-family: 'iconfont';
+            font-size: .28rem;
+            color: #000;
+            font-weight: bold;
+        }
+        .main_more{
+            font-family: 'iconfont';
+            font-size: .18rem;
+            color: #929292;
+            float: right;
+            margin-right: .36rem;
+        }
+        .main_ping{
+            width: 100%;
+            /*background: #fff;*/
+            margin-top: .02rem;
+        }
+        .main_ping_title{
+            background: #fff;
+            height: .72rem;
+            padding: 0 .35rem 0;
+        }
+        .main_ping_title_left{
+            float: left;
+            color: #000;
+            line-height: .72rem;
+        }
+        .main_ping_title_left h1{
+            font-size: .22rem;
+        }
+        .main_ping_title_right{
+            float: right;
+            line-height: .72rem;
+        }
+        .main_ping_title_right p{
+            font-size: .2rem;
+            color: #A8A8A8;
+            float: left;
+        }
+        .main_ping_title_right span{
+            margin-left: .18rem;
+            font-size: .2rem;
+            color: #000;
+            float: left;
+        }
+        .main_ping_bottom{
+            height: 4.84rem;
+            margin-top: .02rem;
+            background: #fff;
+        }
+        .main_ping_item{
+            height: 1.5rem;
+            padding: .24rem .32rem 0;
+        }
+        .main_ping_item_left{
+            width: .96rem;
+            height: 1.04rem;
+            float: left;
+            margin-left: .08rem;
+        }
+        .main_ping_item_left img{
+            width: .96rem;
+            height: 1.04rem;
+        }
+        .main_ping_item_zhong{
+            width: 3.8rem;
+            float: left;
+            margin-left: .24rem;
+        }
+        .main_ping_item_zhong h1{
+            margin-top: .08rem;
+            font-size: .14rem;
+            color: #AFAFAF;
+        }
+        .main_ping_item_zhong p{
+            margin-top: .18rem;
+            font-size: .2rem;
+            color: #000;
+        }
+        .main_ping_item_zhong_di{
+            margin-top: .14rem;
+            font-size: .18rem;
+            line-height: .18rem;
+            color: #AFAFAF;
+        }
+        .main_ping_item_zhong_di span{
+            font-family: 'iconfont';
+            font-size: .2rem;
+        }
+        .main_ping_item_rig{
+            float: left;
+            margin-left: .36rem;
+        }
+        .main_ping_item_rig_shang{
+            font-size: .18rem;
+            color: #FF6600;
+            margin-top: .18rem;
+        }
+        .main_ping_item_rig_xia{
+            float: right;
+            font-size: .14rem;
+            margin-top: .16rem;
+            color: #A8A8A8;
+        }
+        .main_xiangqing_smallbox{
+            width: 100%;
+            height: 1.3rem;
+        }
+        .main_xiangqing_smallbox img{
+            width: 100%;
+            height: 1.3rem;
+        }
+        .main_xiangqing_bigbox{
+            width: 100%;
+            height: 6rem;
+            margin-top: 0.02rem;
+        }
+        .main_xiangqing_bigbox img{
+            width: 100%;
+            height: 6rem;
+            margin-top: 0.02rem;
+        }
+        .footer{
+            height: .98rem;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background-color: #eee;
+        }
+        .footer_left{
+            width: 2.88rem;
+            height: .98rem;
+            float: left;
+        }
+        .footer_left_item{
+            width: .94rem;
+            height: .77rem;
+            margin-top: .16rem;
+            float: left;
+        }
+        .footer_left_item_shang{
+            width: .34rem;
+            height: .3rem;
+            margin: 0 auto;
+            position: relative;
+        }
+        .footer_left_item_shang img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: .34rem;
+            height: .3rem;
+        }
+        .footer_left_item_xia{
+            width: .94rem;
+            font-size: .18rem;
+            margin-top: .14rem;
+            text-align: center;
+            color: #717171;
+        }
+        .footer_line{
+            height: .4rem;
+            width: .02rem;
+            background: #CCCCCC;
+            margin-top: .24rem;
+            float: left;
+        }
+        .footer_right{
+            width: 4.32rem;
+            height: .98rem;
+            float: left;
+        }
+        .footer_right_zuo{
+            width: 2.16rem;
+            height: .98rem;
+            float: left;
+            font-size: .26rem;
+            color: #fff;
+            line-height: .98rem;
+            text-align: center;
+            background: #FFA749;
+        }
+        .footer_right_you{
+            width: 2.16rem;
+            height: .98rem;
+            float: left;
+            font-size: .26rem;
+            color: #fff;
+            line-height: .98rem;
+            text-align: center;
+            background: #FF6600;
+        }
+        .header{
+            width: 100%;
+            height: .86rem;
+            background: rgba(255,255,255,.6);
+            position: fixed;
+            z-index: 99;
+            padding: .23rem .24rem;
+        }
+        .header_left{
+            width: .4rem;
+            height: .4rem;
+            float: left;
+            position: relative;
+        }
+        .header_left img{
+            width: .18rem;
+            height: .33rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .header_rig{
+            width: .4rem;
+            height: .4rem;
+            float: right;
+            position: relative;
+        }
+        .header_rig img{
+            width: .33rem;
+            height: .33rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<section class="header">
+    <div class="header_left">
+        <a href="index.html"> <img src="imgs/hicon.png" alt=""></a>
+    </div>
+    <div class="header_rig">
+        <img src="imgs/hicon2.png" alt="">
+    </div>
+</section>
+<section class="main">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="imgs/1.1.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="imgs/1.4.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="imgs/1.10.jpg" alt="">
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="main_price">
+        <div class="main_price_shang">
+            <h1>一心一意 - 玫瑰11枝，粉色勿忘我0.3扎</h1>
+            <h2>畅销款</h2>
+            <img src="imgs/like.png" alt="" class="main_price_like">
+        </div>
+        <div class="main_price_title">
+            <p>特惠</p>
+        </div>
+        <div class="main_price_xia">
+            <span class="main_price_shu">
+                <i>&yen;</i>
+                <p>139</p>
+            </span>
+            <span class="main_price_shuzi">
+                <i>&yen;</i>
+                <p>139</p>
+            </span>
+            <div class="main_price_xia_count">7.8折</div>
+        </div>
+    </div>
+    <div class="main_introduction ">
+        <div class="main_introduction_item">
+            <div class="main_introduction_item_left">花语</div>
+            <div class="main_introduction_item_rig">
+                <h1 style="font-size: .2rem">11枝玫瑰，寓意一心一意</h1>
+                <p>有情之人，天天是节。一句寒暖，一线相喧；一句叮咛，一笺相传；一份相思，一心相盼；一份爱意，一生相恋。</p>
+            </div>
+        </div>
+        <div class="main_introduction_item">
+            <div class="main_introduction_item_left">材料</div>
+            <div class="main_introduction_item_rig">
+                <p>红玫瑰11枝，粉色(或者紫色)勿忘我0.3扎，栀子叶适量搭配  内层白色雾面纸，外层牛皮纸，咖啡色花结。</p>
+            </div>
+        </div>
+        <div class="main_introduction_item">
+            <div class="main_introduction_item_left">配送</div>
+            <div class="main_introduction_item_rig">
+                <p>全国</p>
+            </div>
+        </div>
+        <div class="main_introduction_item">
+            <div class="main_introduction_item_left">附送</div>
+            <div class="main_introduction_item_rig">
+                <p>下单填写留言，即免费赠送精美贺卡！</p>
+            </div>
+        </div>
+        <div class="main_introduction_item">
+            <div class="main_introduction_item_left">说明</div>
+            <div class="main_introduction_item_rig">
+                <p>产销款特惠</p>
+            </div>
+        </div>
+    </div>
+    <div class="main_address">
+        <div class="main_fangwei">配送至 <span>&#xe610;</span> 请选择配送地区</div>
+        <span class="main_more">&#xe637;</span>
+    </div>
+    <div class="main_ping">
+        <div class="main_ping_title">
+            <div class="main_ping_title_left">
+                <h1>订单评价</h1>
+            </div>
+            <div class="main_ping_title_right">
+                <p>4263条评价</p>
+                <span>&gt;</span>
+            </div>
+        </div>
+        <div class="main_ping_bottom">
+            <div class="main_ping_item">
+                <div class="main_ping_item_left">
+                    <img src="imgs/1.10.jpg" alt="">
+                </div>
+                <div class="main_ping_item_zhong">
+                    <h1>2016928*</h1>
+                    <p>虽然，对方没有选择我。但花还是很好的</p>
+                    <div class="main_ping_item_zhong_di"><span>&#xe610;</span>山西省太原市晋源区******</div>
+                </div>
+                <div class="main_ping_item_rig">
+                    <div class="main_ping_item_rig_shang">★★★★★</div>
+                    <div class="main_ping_item_rig_xia">2018-4-8</div>
+                </div>
+            </div>
+            <div class="main_ping_item">
+                <div class="main_ping_item_left">
+                    <img src="imgs/1.10.jpg" alt="">
+                </div>
+                <div class="main_ping_item_zhong">
+                    <h1>2016928*</h1>
+                    <p>虽然，对方没有选择我。但花还是很好的</p>
+                    <div class="main_ping_item_zhong_di"><span>&#xe610;</span>山西省太原市晋源区******</div>
+                </div>
+                <div class="main_ping_item_rig">
+                    <div class="main_ping_item_rig_shang">★★★★★</div>
+                    <div class="main_ping_item_rig_xia">2018-4-8</div>
+                </div>
+            </div>
+            <div class="main_ping_item">
+                <div class="main_ping_item_left">
+                    <img src="imgs/1.10.jpg" alt="">
+                </div>
+                <div class="main_ping_item_zhong">
+                    <h1>2016928*</h1>
+                    <p>虽然，对方没有选择我。但花还是很好的</p>
+                    <div class="main_ping_item_zhong_di"><span>&#xe610;</span>山西省太原市晋源区******</div>
+                </div>
+                <div class="main_ping_item_rig">
+                    <div class="main_ping_item_rig_shang">★★★★★</div>
+                    <div class="main_ping_item_rig_xia">2018-4-8</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_xiangqing">
+        <div class="main_xiangqing_smallbox">
+            <img src="imgs/item1.png" alt="">
+        </div>
+        <div class="main_xiangqing_bigbox">
+            <img src="imgs/item2.jpg" alt="">
+        </div>
+        <div class="main_xiangqing_smallbox" style="height: 1.86rem;">
+            <img src="imgs/item3.jpg" alt="" style="height: 1.86rem;">
+        </div>
+        <div class="main_xiangqing_bigbox">
+            <img src="imgs/item4.jpg" alt="">
+        </div>
+        <div class="main_xiangqing_smallbox" style="height: 1.86rem;">
+            <img src="imgs/item5.jpg" alt="" style="height: 1.86rem;">
+        </div>
+        <div class="main_xiangqing_bigbox" style="height: 9.12rem;">
+            <img src="imgs/item6.jpg" alt="" style="height: 9.12rem;">
+        </div>
+        <div class="main_xiangqing_smallbox" style="height: 1.86rem;">
+            <img src="imgs/item7.jpg" alt="" style="height: 1.86rem;">
+        </div>
+        <div class="main_xiangqing_bigbox">
+            <img src="imgs/item8.jpg" alt="">
+        </div>
+    </div>
+</section>
+<section class="footer">
+    <div class="footer_left">
+        <div class="footer_left_item">
+            <div class="footer_left_item_shang">
+                <img src="imgs/itemc.png" alt="">
+            </div>
+            <div class="footer_left_item_xia">客服</div>
+        </div>
+        <div class="footer_line"></div>
+        <div class="footer_left_item">
+            <div class="footer_left_item_shang">
+                <img src="imgs/itema.png" alt="">
+            </div>
+            <div class="footer_left_item_xia">电话</div>
+        </div>
+        <div class="footer_line"></div>
+        <div class="footer_left_item">
+            <div class="footer_left_item_shang">
+                <img src="imgs/itemb.png" alt="">
+            </div>
+            <div class="footer_left_item_xia">购物车</div>
+        </div>
+    </div>
+    <div class="footer_right">
+        <div class="footer_right_zuo">加入购物车</div>
+        <div class="footer_right_you">立即购买</div>
+    </div>
+</section>
+<script src="js/jquery.js"></script>
+<script src="js/swiper.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        initialSlide :2,
+        paginationClickable: true,
+        autoplay : 3000,
+        speed:300,
+        pagination: '.swiper-pagination'
+    });
+</script>
+</body>
+</html>

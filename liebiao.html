@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="icon" href="imgs/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/public.css">
+    <script src="js/rem.js"></script>
+    <style>
+        @font-face {
+            font-family: 'iconfont';  /* project id 570248 */
+            src: url('//at.alicdn.com/t/font_570248_3jav2113r1azia4i.eot');
+            src: url('//at.alicdn.com/t/font_570248_3jav2113r1azia4i.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_570248_3jav2113r1azia4i.woff') format('woff'),
+            url('//at.alicdn.com/t/font_570248_3jav2113r1azia4i.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_570248_3jav2113r1azia4i.svg#iconfont') format('svg');
+        }
+        .header{
+            height: .89rem;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #F9F8F8;
+            border-top: .01rem solid #eee;
+            z-index: 99;
+        }
+        .header_left{
+            width: .2rem;
+            height: .32rem;
+            margin-top: .28rem;
+            margin-left: .22rem;
+            /*background-color: red;*/
+            float: left;
+            position: relative;
+        }
+        .header_left a{
+            color: #000;
+            font-size: .32rem;
+            position: absolute;
+            top: 0;
+        }
+        .header_zhong{
+            height: .33rem;
+            margin-top: .3rem;
+            margin-left: 2.58rem;
+            /*background-color: green;*/
+            float: left;
+        }
+        .header_zhong h1{
+            font-size: .32rem;
+            color: #000;
+            line-height: .28rem;
+        }
+        .header_right{
+            margin-left: 2.42rem;
+            width: .32rem;
+            height: .22rem;
+            /*background-color: seagreen;*/
+            float: left;
+            margin-top: .34rem;
+            position: relative;
+        }
+        .header_right span{
+            font-family: 'iconfont';
+            font-size: .22rem;
+            position: absolute;
+            color: #000;
+            top: 0;
+        }
+        .main{
+            position: absolute;
+            top: .89rem;
+            overflow-y: scroll;
+            left: 0;
+            right: 0;
+            background-color: #F0EFED;
+        }
+        .main::-webkit-scrollbar{
+            display: none;
+        }
+        .main_title{
+            height: .86rem;
+            margin-top: .02rem;
+        }
+        .main_title_item{
+            width: 1.78rem;
+            height: .86rem;
+            margin-right: .02rem;
+            float: left;
+            font-size: .28rem;
+            text-align: center;
+            line-height: .86rem;
+            background: #fff;
+        }
+        .main_daohang{
+            height: .88rem;
+            margin-top: .02rem;
+            background: #fff;
+        }
+        .main_daohang_item{
+            height: .88rem;
+            width: 1.38rem;
+            text-align: center;
+            line-height: .88rem;
+            float: left;
+            font-size: .24rem;
+            color: #B4B4B4;
+        }
+        .main_bottom{
+            background: #fff;
+            margin-top: .02rem;
+            height: 30.5rem;
+        }
+        .main_bottom_item{
+            width: 3.36rem;
+            height: 4.88rem;
+            border: .02rem solid #EFEFEF;
+            float: left;
+            margin-left: .16rem;
+            margin-top: .14rem;
+        }
+        .main_bottom_item img{
+            width: 3.36rem;
+            height: 3.31rem;
+        }
+        .main_bottom_item_bottom{
+            height: .84rem;
+            /*margin-top: .14rem;*/
+        }
+        .main_bottom_item_bottom h1{
+            font-size: .24rem;
+            color: #000;
+            margin-left: .12rem;
+        }
+        .main_bottom_item_bottom p{
+            font-size: .2rem;
+            color: #AAAAAA;
+            margin-left: .12rem;
+        }
+        .main_bottom_item_bottom span{
+            font-size: .14rem;
+            color: #000;
+            float: left;
+            margin-left: .12rem;
+        }
+        .main_bottom_item_bottom h2{
+            font-size: .2rem;
+            color: #000;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<section class="header">
+    <div class="header_left">
+        <a href="fenlei.html">&lt;</a>
+    </div>
+    <div class="header_zhong">
+        <h1>爱情鲜花</h1>
+    </div>
+    <div class="header_right">
+        <span>&#xe602;</span>
+    </div>
+</section>
+<section class="main">
+    <div class="main_title">
+        <div class="main_title_item">综合</div>
+        <div class="main_title_item">销量</div>
+        <div class="main_title_item">价格</div>
+        <div class="main_title_item" style="margin-right: 0;">最新</div>
+    </div>
+    <div class="main_daohang">
+        <div class="main_daohang_item" style="color: #000;">全部</div>
+        <div class="main_daohang_item">爱情鲜花</div>
+        <div class="main_daohang_item">友情鲜花</div>
+        <div class="main_daohang_item">送长辈鲜花</div>
+        <div class="main_daohang_item">鲜花分类&gt;</div>
+    </div>
+    <div class="main_bottom">
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+        <div class="main_bottom_item">
+            <img src="imgs/1.1.jpg" alt="">
+            <div class="main_bottom_item_bottom">
+                <h1>鲜花/一心一意</h1>
+                <p>玫瑰11枝，粉色勿忘我0.3扎</p>
+                <span>&yen;</span>
+                <h2>166</h2>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
